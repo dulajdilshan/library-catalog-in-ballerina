@@ -8,15 +8,18 @@ final cache:Cache cache = new ({
     evictionFactor: 0.2
 });
 
-const string RECENT_BOOKS_KEY = "recent_books";
+const RECENT_BOOKS_KEY = "recent_books";
 const GENRES_KEY = "top_genres";
 const LIRBARY_STATS_KEY = "library_stats";
 
+@display {
+    label: "Analytics Service",
+    id: "da9b072e-e54c-4af0-865f-882ff507ccc0"
+}
 service / on new http:Listener(8081) {
-
     @display {
-        label: "book_service Component",
-        id: "bal_workshop:book_service:_defaultBasePath"
+        label: "Book Service",
+        id: "61e00f06-4051-4f30-b7ac-28db7bc28440"
     }
     http:Client booksClient;
 

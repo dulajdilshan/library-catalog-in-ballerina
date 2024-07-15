@@ -3,6 +3,10 @@ import ballerina/http;
 // Initialize the persist client
 final Client persistClient = check new ();
 
+@display {
+    label: "Book Service",
+    id: "61e00f06-4051-4f30-b7ac-28db7bc28440"
+}
 service / on new http:Listener(8080) {
 
     // Get all books
