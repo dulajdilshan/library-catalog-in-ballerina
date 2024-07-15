@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "gateway_service",
+			"path": "../gateway_service"
+		},
+		{
+			"name": "analytics_service",
+			"path": "../analytics_service"
+		}
+	],
+	"settings": {}
+}
