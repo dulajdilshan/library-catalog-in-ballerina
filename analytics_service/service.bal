@@ -8,7 +8,6 @@ final cache:Cache cache = new ({
     evictionFactor: 0.2
 });
 
-const RECENT_BOOKS_KEY = "recent_books";
 const GENRES_KEY = "top_genres";
 const LIRBARY_STATS_KEY = "library_stats";
 

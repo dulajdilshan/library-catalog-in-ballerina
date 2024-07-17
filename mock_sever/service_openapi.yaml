@@ -1,0 +1,82 @@
+openapi: 3.0.1
+info:
+  title: Service Openapi Yaml
+  version: 0.1.0
+servers:
+- url: "{server}:{port}/"
+  variables:
+    server:
+      default: http://localhost
+    port:
+      default: "8080"
+paths:
+  /isbn:
+    post:
+      summary: Generate an ISBN number based on the book details.
+      operationId: postIsbn
+      requestBody:
+        description: payload The book details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IsbnRequest'
+        required: true
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IsbnResponse'
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+components:
+  schemas:
+    ErrorPayload:
+      required:
+      - message
+      - method
+      - path
+      - reason
+      - status
+      - timestamp
+      type: object
+      properties:
+        timestamp:
+          type: string
+        status:
+          type: integer
+          format: int64
+        reason:
+          type: string
+        message:
+          type: string
+        path:
+          type: string
+        method:
+          type: string
+    IsbnRequest:
+      required:
+      - author
+      - title
+      - year
+      type: object
+      properties:
+        title:
+          type: string
+        author:
+          type: string
+        year:
+          type: integer
+          format: int64
+    IsbnResponse:
+      required:
+      - isbn
+      type: object
+      properties:
+        isbn:
+          type: string
